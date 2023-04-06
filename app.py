@@ -13,15 +13,14 @@ def index():
 
 @app.route('/poke')
 def corp():
-    content = get('https://tmare.ndelpech.fr/tps/pokemons')
+    content = get('https://studies.delpech.info/pbi/pokemons/dataset/json')
     pokemons=content.json()
-    pokemonN=get('https://tmare.ndelpech.fr/tps/pokemons/{}'.format(pokemons[150]['id'])).json()
-    return render_template ('corp.jinja',pokemons=pokemons,pokemonN=pokemonN)
+    print(pokemons)
+    return render_template ('corp.jinja',pokemons=pokemons)
 
 @app.route('/pokeInfo2/<string:i>')
 def pokeInfo2(i):
-    content = get('https://tmare.ndelpech.fr/tps/pokemons/'+ i +'')
+    content = get('https://studies.delpech.info/pbi/pokemons/dataset/' + i + '/json')
     pokemons=content.json()
-    print(pokemons)
     return render_template ('pagePokemon.jinja',pokemons=pokemons)
 

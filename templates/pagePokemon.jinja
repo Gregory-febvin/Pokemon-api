@@ -6,179 +6,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
     <title>Page Pokemon</title>
+    <link rel="icon" type="image/x-icon" href="Https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{pokemons['id']}}.svg">
 </head>
 <body>
   <div class="pokemon-information">
-    <table>
-      <thead>
-        <th class="js-background-color">
-          {{pokemons['name']['fr']}}
-        </th>
+    <div class="menu" >
+      <div>Menu principale</div>
+      <a href="/poke">
+        <img class="image_pokedex" src="../static/images/Pokedex_icon.png" loading="lazy">
+      </a>
+    </div>
 
-        <th>
-        <big>
-          № {{pokemons['id']}}
-        </big>
-        </th>
-      </thead>
+    <div class="div_stat">
+      <div class="table-container">
+        <table class="stat-pokemon-table">
+          <thead>
+            <th class="js-background-color">
+              {{pokemons['name']['fr']}}
+            </th>
 
-      <tbody>
-        <tr>
-        <td class="illustration" colspan="2">
-          <img class="image_illustration" alt="Image de {{pokemons['name']['fr']}}" src="Https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{pokemons['id']}}.svg">
-        </td>
-        </tr>
+            <th>
+            <big>
+              № {{pokemons['id']}}
+            </big>
+            </th>
+          </thead>
 
-        <tr>
-          <th class="js-background-color">
-            Types
-          </th>
+          <tbody>
+            <tr>
+            <td class="illustration" colspan="2">
+              <img class="image_illustration" alt="Image de {{pokemons['name']['fr']}}" src="Https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{pokemons['id']}}.svg">
+            </td>
+            </tr>
 
-          <th class="no-js-background-color">
-          {%for i in pokemons['types']%}
-          {{i}}
-          {%endfor%}
-          </th>
-        </tr>
+            <tr>
+              <th class="js-background-color">
+                Types
+              </th>
 
-        <tr>
-          <th class="js-background-color">
-            Catégorie
-          </th>
-            
-          <th class="no-js-background-color">
-            {{pokemons['genus']['fr']}}
-          </th>
-        </tr>
+              <th class="no-js-background-color">
+              {%for i in pokemons['types']%}
+              {{i['name']['fr']}}
+              {%endfor%}
+              </th>
+            </tr>
 
-        <tr>
-          <th class="js-background-color">
-            Taille
-          </th>
+            <tr>
+              <th class="js-background-color">
+                Catégorie
+              </th>
+                
+              <th class="no-js-background-color">
+                {{pokemons['genus']['fr']}}
+              </th>
+            </tr>
 
-          <th class="no-js-background-color">
-            {{pokemons['height']}}
-          </th>
-        </tr>
+            <tr>
+              <th class="js-background-color">
+                Taille
+              </th>
 
-        <tr>
-          <th class="js-background-color">
-            Poids
-          </th>
+              <th class="no-js-background-color" id="height">
+                
+              </th>
+            </tr>
 
-          <th class="no-js-background-color">
-            {{pokemons['weight']}}
-          </th>
-        </tr>
+            <tr>
+              <th class="js-background-color">
+                Poids
+              </th>
 
-      </tbody>
-    </table>
+              <th class="no-js-background-color" id="weight">
+                
+              </th>
+            </tr>
 
-    <table class="stat-pokemon-table">
-      <tbody>
+          </tbody>
+        </table>
 
-      <tr>
-        <th colspan="3" class="js-background-color stat">
-          Statistiques indicatives de {{pokemons['name']['fr']}}
-        </th>      
-      </tr>
+        <table class="stat-pokemon-table">
+          <tbody>
+
+          <tr>
+            <th colspan="3" class="js-background-color stat">
+              Statistiques indicatives de {{pokemons['name']['fr']}}
+            </th>      
+          </tr>
+          
+          <tr>
+            <th class="js-background-color">
+              Statistique
+            </th>
+
+            <th class="js-background-color" colspan="2">
+              Statistique de base
+            </th>
+          </tr>
+
+          <tr>
+            <td class="no-js-background-color">
+              PV
+            </td>
+
+            <td class="no-js-background-color">
+              {{pokemons['stats'][0]['stat']}}
+            </td>
+            <td class="no-js-background-color stat-indicator">  
+                <div class="stat-indicator-js" style="width: {{pokemons['stats'][0]['stat']}}px; height:10px; background: #a0f0a0; border: 1px solid black">&nbsp;</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="no-js-background-color">
+              Attaque
+            </td>
+
+            <td class="no-js-background-color">
+              {{pokemons['stats'][1]['stat']}}
+            </td>
+            <td class="no-js-background-color stat-indicator">
+                <div class="stat-indicator-js" style="width:{{pokemons['stats'][1]['stat']}}px; height:10px; background: #f0a0a0; border: 1px solid black">&nbsp;</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="no-js-background-color">
+              Defense
+            </td>
+
+            <td class="no-js-background-color">
+              {{pokemons['stats'][2]['stat']}}
+            </td>
+            <td class="no-js-background-color stat-indicator">
+                <div class="stat-indicator-js" style="width:{{pokemons['stats'][2]['stat']}}px; height:10px; background: #f0f0a0; border: 1px solid black">&nbsp;</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="no-js-background-color">
+              Attaque Spéciale
+            </td>
+
+            <td class="no-js-background-color">
+              {{pokemons['stats'][3]['stat']}}
+            </td>
+            <td class="no-js-background-color stat-indicator">
+                <div class="stat-indicator-js" style="width:{{pokemons['stats'][3]['stat']}}px; height:10px; background: #f8c8a0; border: 1px solid black">&nbsp;</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="no-js-background-color">
+              Defense Spéciale
+            </td>
+
+            <td class="no-js-background-color">
+              {{pokemons['stats'][4]['stat']}}
+            </td>
+            <td class="no-js-background-color stat-indicator">
+                <div class="stat-indicator-js" style="width:{{pokemons['stats'][4]['stat']}}px; height:10px; background: #e8c868; border: 1px solid black">&nbsp;</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="no-js-background-color">
+              Vitesse
+            </td>
+
+
+          <td class="no-js-background-color">
+              {{pokemons['stats'][5]['stat']}}
+            </td>
+            <td class="no-js-background-color stat-indicator">
+                <div class="stat-indicator-js" style="width:{{pokemons['stats'][5]['stat']}}px; height:10px; background: #a0f0f0; border: 1px solid black">&nbsp;</div>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
       
-      <tr>
-        <th class="js-background-color">
-          Statistique
-        </th>
-
-        <th class="js-background-color" colspan="2">
-          Statistique de base
-        </th>
-      </tr>
-
-      <tr>
-        <td class="no-js-background-color">
-          PV
-        </td>
-
-        <td class="no-js-background-color">
-          {{pokemons['stats'][0]['stat']}}
-        </td>
-        <td class="no-js-background-color stat-indicator">  
-            <div class="stat-indicator-js" style="width: {{pokemons['stats'][0]['stat']}}px; height:10px; background: #a0f0a0; border: 1px solid black">&nbsp;</div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="no-js-background-color">
-          Attaque
-        </td>
-
-        <td class="no-js-background-color">
-          {{pokemons['stats'][1]['stat']}}
-        </td>
-        <td class="no-js-background-color stat-indicator">
-            <div class="stat-indicator-js" style="width:{{pokemons['stats'][1]['stat']}}px; height:10px; background: #f0a0a0; border: 1px solid black">&nbsp;</div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="no-js-background-color">
-          Defense
-        </td>
-
-        <td class="no-js-background-color">
-          {{pokemons['stats'][2]['stat']}}
-        </td>
-        <td class="no-js-background-color stat-indicator">
-            <div class="stat-indicator-js" style="width:{{pokemons['stats'][2]['stat']}}px; height:10px; background: #f0f0a0; border: 1px solid black">&nbsp;</div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="no-js-background-color">
-          Attaque Spéciale
-        </td>
-
-        <td class="no-js-background-color">
-          {{pokemons['stats'][3]['stat']}}
-        </td>
-        <td class="no-js-background-color stat-indicator">
-            <div class="stat-indicator-js" style="width:{{pokemons['stats'][3]['stat']}}px; height:10px; background: #f8c8a0; border: 1px solid black">&nbsp;</div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="no-js-background-color">
-          Defense Spéciale
-        </td>
-
-        <td class="no-js-background-color">
-          {{pokemons['stats'][4]['stat']}}
-        </td>
-        <td class="no-js-background-color stat-indicator">
-            <div class="stat-indicator-js" style="width:{{pokemons['stats'][4]['stat']}}px; height:10px; background: #e8c868; border: 1px solid black">&nbsp;</div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="no-js-background-color">
-          Vitesse
-        </td>
-
-
-       <td class="no-js-background-color">
-          {{pokemons['stats'][5]['stat']}}
-        </td>
-        <td class="no-js-background-color stat-indicator">
-            <div class="stat-indicator-js" style="width:{{pokemons['stats'][5]['stat']}}px; height:10px; background: #a0f0f0; border: 1px solid black">&nbsp;</div>
-        </td>
-      </tr>
-
-      </tbody>
-    </table>
+      <div class="description_pokemon">
+        <div>
+          <div class="js-background-color stat">
+              Description de {{pokemons['name']['fr']}}
+          </div>
+          <div class="stat">
+              {{pokemons['description']['fr']}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
 
 <script>
+
+let char = "0,";
+
+const true_height = "{{pokemons['height']}}";
+const true_height_convert = true_height.replace(/\B(?=(\d{1})+(?!\d))/, ",");
+let true_height_special = true_height_convert.replace(/\d(?=[^\d]*$)/, char + '$&');
+let div_height = document.getElementById("height");
+div_height.innerHTML = true_height_special + " m";
+
+const true_weight = "{{pokemons['weight']}}";
+const true_weight_convert = true_weight.replace(/\B(?=(\d{1})+(?!\d))/, ",");
+let div_weight = document.getElementById("weight");
+div_weight.innerHTML = true_weight_convert + " kg";
 
 let typeColors = {
   'Normal' : '#6D6D4E',
@@ -187,7 +223,7 @@ let typeColors = {
   'Electric' :'#A1871',
   'Grass' :'#4E8234',
   'Ice' :'#638D8D',
-  'Fighting' :'#7D1F1',
+  'Fighting' :'#7D1F1A',
   'Poison' :'#682A68',
   'Ground' :'#927D44',
   'Flying' :'#6D5E9C',
@@ -201,9 +237,8 @@ let typeColors = {
   'Fairy' : '#9B6470',
 };
 
-// Get the value of type from the API response
-let type = "{{pokemons['types'][0]}}";
-
+let type = "{{pokemons['types'][0]['name']['en']}}";
+console.log(type)
 if (type in typeColors) 
   for(const dom of document.querySelectorAll('.js-background-color'))
     dom.style.backgroundColor = typeColors[type];

@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="static/css/main.css" />
     <title>Pokedex</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/Pokedex_icon.svg">
 </head>
 <body>
     <div id="pokedex">
         <h1>Pokedex</h1>
     
-            <!-- boucle -->
             <div class="box">
-            {%for i in pokemons%}
+            {%for i in pokemons[:649]%}
             <div class="pokemons_">
                 <a href="/pokeInfo2/{{i['id']}}"> <img class="image" src="Https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{i['id']}}.svg"></a>
+                <div class="name_pokedex">{{i['name']['fr']}}</div>
             </div>
             {% endfor %}
             </div>
